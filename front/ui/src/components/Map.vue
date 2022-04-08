@@ -14,13 +14,16 @@
       :coordinates="[coordinate.coordinates.longitude,coordinate.coordinates.altitude]" 
       >
         <img :src="imgPlane" alt="" slot="marker" class="img-plane"/>
+        <MglPopup :coordinates="[coordinate.coordinates.longitude,coordinate.coordinates.altitude]" anchor="top">
+          <div>{{ coordinate.coordinates.info }}!</div>
+    </MglPopup>
       </MglMarker>
     </MglMap>
   </div>
 </template>
 
 <script>
-import { MglMap, MglMarker } from "vue-mapbox";
+import { MglMap, MglMarker, MglPopup } from "vue-mapbox";
 import plane from "../assets/plane.svg";
 
 export default {
@@ -29,6 +32,7 @@ export default {
   components: {
     MglMap,
     MglMarker,
+    MglPopup
   },
 
   data() {
@@ -44,28 +48,28 @@ export default {
       {
         coordinates : {
           altitude : 48.889359,
-          longitude: 2.220344
+          longitude: 2.220344,
+          info: "AVION 0001"
         }
       },
       {
         coordinates : {
           altitude : 48.889415,
-          longitude: 2.226700
+          longitude: 2.226700,
+          info: "AVION 0002"
         }
       },
       {
         coordinates : {
           altitude : 48.895757,
-          longitude: 2.206070
+          longitude: 2.206070,
+          info: "AVION 0003"
         }
       }
     ]
     };
   }, 
   mounted() {
-    this.coordinateMap.forEach((stat) => {
-      console.log('state', stat)
-    })
     this.containerElement = document.getElementById('mycontainer')
   }
 };
