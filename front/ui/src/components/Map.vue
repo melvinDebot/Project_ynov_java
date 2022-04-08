@@ -46,36 +46,12 @@ export default {
       containerElement: null,
       imgPlane : plane,
       positionPlane : [],
-      coordinateMap : [
-      {
-        coordinates : {
-          altitude : 48.889359,
-          longitude: 2.220344,
-          info: "AVION 0001"
-        }
-      },
-      {
-        coordinates : {
-          altitude : 48.889415,
-          longitude: 2.226700,
-          info: "AVION 0002"
-        }
-      },
-      {
-        coordinates : {
-          altitude : 48.895757,
-          longitude: 2.206070,
-          info: "AVION 0003"
-        }
-      }
-    ]
     };
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
     axios.get("https://airlabs.co/api/v9/flights?api_key=537a34ad-98f0-4616-adae-ec9a3f8e1da1").then((response)=> {
       this.positionPlane = response.data.response
-      console.log(this.positionPlane)
     })
   }
 };
