@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+    <div id="nav">
+      <router-link to="/">MVS AIRLINE</router-link> 
+      <router-link to="/about">Historiques</router-link>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -20,12 +20,17 @@
 }
 
 #nav {
-  padding: 30px;
+  height: 70px;
+  display: flex;
+  padding: 0px 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {

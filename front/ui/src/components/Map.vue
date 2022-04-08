@@ -8,21 +8,23 @@
       ref="map"
       class="default-map-xl"
     >
-      <MglMarker :coordinates="[2.254950,48.923050]" color="blue" />
+      <MglMarker 
+      v-for="(coordinate,key) in coordinateMap"
+      :key="key"
+      :coordinates="[coordinate.coordinates.longitude,coordinate.coordinates.altitude]" 
+      >
+        <img :src="imgPlane" alt="" slot="marker" class="img-plane"/>
+        <MglPopup :coordinates="[coordinate.coordinates.longitude,coordinate.coordinates.altitude]" anchor="top">
+          <div>{{ coordinate.coordinates.info }}!</div>
+    </MglPopup>
+      </MglMarker>
     </MglMap>
   </div>
 </template>
 
-<style scoped>
-.default-map-xl {
-  width: 100% !important;
-  height: 100vh !important;
-}
-
-</style>
-
 <script>
-import { MglMap, MglMarker } from "vue-mapbox";
+import { MglMap, MglMarker, MglPopup } from "vue-mapbox";
+import plane from "../assets/plane.svg";
 
 export default {
   name: "MapExample",
@@ -30,6 +32,7 @@ export default {
   components: {
     MglMap,
     MglMarker,
+    MglPopup
   },
 
   data() {
@@ -38,14 +41,47 @@ export default {
         "pk.eyJ1IjoibWVsdmluZGJ0NzciLCJhIjoiY2wxcTNsbXkwMGR5NjNrcHRncDFvaWFucCJ9.1eYVlTojCwal_wGT5g2afQ",
       mapStyle: "mapbox://styles/mapbox/streets-v11",
       zoom: 10,
- 
       center: [2.254950,48.923050 ],
-      containerElement: null
+      containerElement: null,
+      imgPlane : plane,
+      coordinateMap : [
+      {
+        coordinates : {
+          altitude : 48.889359,
+          longitude: 2.220344,
+          info: "AVION 0001"
+        }
+      },
+      {
+        coordinates : {
+          altitude : 48.889415,
+          longitude: 2.226700,
+          info: "AVION 0002"
+        }
+      },
+      {
+        coordinates : {
+          altitude : 48.895757,
+          longitude: 2.206070,
+          info: "AVION 0003"
+        }
+      }
+    ]
     };
-  },  
+  }, 
   mounted() {
-
     this.containerElement = document.getElementById('mycontainer')
   }
 };
 </script>
+
+<style scoped>
+.default-map-xl {
+  width: 100% !important;
+  height: 100vh !important;
+}
+.img-plane{
+  width: 50px
+}
+
+</style>
