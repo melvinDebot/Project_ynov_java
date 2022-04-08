@@ -8,6 +8,7 @@
       ref="map"
       class="default-map-xl"
     >
+      <MglMarker :coordinates="[2.254950,48.923050]" color="blue" />
     </MglMap>
   </div>
 </template>
@@ -21,13 +22,14 @@
 </style>
 
 <script>
-import { MglMap } from "vue-mapbox";
+import { MglMap, MglMarker } from "vue-mapbox";
 
 export default {
   name: "MapExample",
 
   components: {
-    MglMap
+    MglMap,
+    MglMarker,
   },
 
   data() {
@@ -35,15 +37,14 @@ export default {
       accessToken:
         "pk.eyJ1IjoibWVsdmluZGJ0NzciLCJhIjoiY2wxcTNsbXkwMGR5NjNrcHRncDFvaWFucCJ9.1eYVlTojCwal_wGT5g2afQ",
       mapStyle: "mapbox://styles/mapbox/streets-v11",
-      zoom: 8.5,
-      center: [-84.1774784, 9.9678728],
-      selectedFeature: {
-        name: "San José",
-      },
+      zoom: 10,
+ 
+      center: [2.254950,48.923050 ],
       containerElement: null
     };
   },  
   mounted() {
+
     this.containerElement = document.getElementById('mycontainer')
   }
 };
