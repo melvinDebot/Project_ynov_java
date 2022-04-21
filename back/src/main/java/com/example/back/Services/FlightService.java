@@ -5,7 +5,9 @@ import com.example.back.Repository.FlightRepository;
 import com.example.back.models.Airplane;
 import com.example.back.models.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class FlightService {
     FlightRepository flightRepository;
 

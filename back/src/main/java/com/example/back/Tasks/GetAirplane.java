@@ -1,6 +1,8 @@
 package com.example.back.Tasks;
 
+import com.example.back.Services.AirplaneService;
 import com.example.back.Services.FlightService;
+import com.example.back.models.Airplane;
 import com.example.back.models.Flight;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,14 +19,14 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 @Component
-public class GetFlight {
+public class GetAirplane {
 
     @Autowired
-    FlightService flightService;
+    AirplaneService airplaneService;
     private static HttpURLConnection connection;
 
     @Scheduled(fixedDelay = 3600000)
-    public void getFlight() {
+    public void getAirplane() {
         BufferedReader reader;
         String line;
         StringBuffer buffer = new StringBuffer();
@@ -65,23 +67,18 @@ public class GetFlight {
 
     public String parse(String response) {
         JSONObject jsonData = new JSONObject(response);
-        JSONArray flights = new JSONArray(jsonData.getJSONArray("response"));
+        JSONArray planes = new JSONArray(jsonData.getJSONArray("response"));
 
-        for (int i = 0; i < flights.length(); i++) {
-            JSONObject flight = flights.getJSONObject(i);
-            String icao24 = getString(flight, "flight_icao", null);
-            String hex = getString(flight, "hex", null);
-            String flightNumber = getString(flight, "flight_number", null);
-            String status = flight.getString("status");
-            int speed = flight.getInt("speed");
-            int dir = flight.getInt("dir");
-            Float latitude = flight.getFloat("lat");
-            Float longitude = flight.getFloat("lng");
+        for (int i = 0; i < planes.length(); i++) {
+            JSONObject plane = planes.getJSONObject(i);
+            String icao24 = getString(plane, "flight_icao", null);
+            String label = getString(plane,"reg_number", null);
 
-            Flight flightObject = new Flight(hex, flightNumber, status, speed, dir, latitude, longitude, icao24);
 
-            System.out.println(flightObject);
-            flightService.insertFlight(flightObject);
+            Airplane airplaneObject = new Airplane(icao24,label);
+
+            System.out.println(airplaneObject);
+            airplaneService.insertAirPlane(airplaneObject);
 
         }
         return null;

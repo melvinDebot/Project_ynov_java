@@ -8,9 +8,9 @@ public class Flight {
 
     @Id
     @Column(name = "id_flight")
-    private Integer hex;
+    private String hex;
     @Column(name = "flight_number")
-    private int flightNumber;
+    private String flightNumber;
     private String status;
     private int speed;
     private int dir;
@@ -19,7 +19,7 @@ public class Flight {
     @Column(name = "id_plane")
     private String icao24;
 
-    public Flight(Integer hex, int flightNumber, String status, int speed, int dir, Float latitude, Float longitude, String icao24) {
+    public Flight(String hex, String flightNumber, String status, int speed, int dir, Float latitude, Float longitude, String icao24) {
         this.hex = hex;
         this.flightNumber = flightNumber;
         this.status = status;
@@ -37,7 +37,7 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight{" +
-                "icao24='" + icao24 + '\'' +
+                "hex='" + hex + '\'' +
                 ", flightNumber=" + flightNumber +
                 ", status='" + status + '\'' +
                 ", speed=" + speed +
