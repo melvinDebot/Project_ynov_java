@@ -34,17 +34,67 @@ public class Flight {
 
     }
 
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "hex='" + hex + '\'' +
-                ", flightNumber=" + flightNumber +
-                ", status='" + status + '\'' +
-                ", speed=" + speed +
-                ", dir=" + dir +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", icao24='" + icao24 + '\'' +
-                '}';
+    public String getHex() {
+        return hex;
+    }
+
+    public void setHex(String hex) {
+        this.hex = hex;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getDir() {
+        return dir;
+    }
+
+    public void setDir(int dir) {
+        this.dir = dir;
+    }
+
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getIcao24() {
+        return icao24;
+    }
+
+    public void setIcao24(String icao24) {
+        this.icao24 = icao24;
     }
 }

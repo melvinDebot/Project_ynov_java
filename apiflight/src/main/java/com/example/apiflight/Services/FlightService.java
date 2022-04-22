@@ -5,6 +5,8 @@ import com.example.apiflight.models.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FlightService {
     FlightRepository flightRepository;
@@ -14,7 +16,11 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
-    public void insertFlight(Flight flight){
-        flightRepository.save(flight);
+    public List<Flight> getAllFlights(){
+        return flightRepository.findAll();
+    }
+
+    public Flight getFlightById(String id) {
+        return flightRepository.findById(id).get();
     }
 }

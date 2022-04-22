@@ -23,11 +23,19 @@ public class Airplane {
 
     }
 
-    @Override
-    public String toString() {
-        return "Airplane{" +
-                "icao24='" + icao24 + '\'' +
-                ", label='" + label + '\'' +
-                '}';
+    public String getIcao24() {
+        return icao24;
+    }
+
+    public void setIcao24(String icao24) {
+        this.icao24 = icao24;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

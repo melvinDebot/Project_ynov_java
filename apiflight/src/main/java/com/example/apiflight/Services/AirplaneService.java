@@ -1,9 +1,12 @@
 package com.example.apiflight.Services;
 
-import com.example.back.Repository.AirplaneRepository;
-import com.example.back.models.Airplane;
+
+import com.example.apiflight.Repository.AirplaneRepository;
+import com.example.apiflight.models.Airplane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AirplaneService {
@@ -14,7 +17,11 @@ public class AirplaneService {
         this.airplaneRepository = airplaneRepository;
     }
 
-    public void insertAirPlane(Airplane airplane) {
-        airplaneRepository.save(airplane);
+    public List<Airplane> getAllAirplanes() {
+        return airplaneRepository.findAll();
+    }
+
+    public Airplane getAirplaneById(String id) {
+        return airplaneRepository.findById(id).get();
     }
 }
