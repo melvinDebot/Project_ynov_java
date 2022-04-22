@@ -71,7 +71,7 @@ public class GetAirplane {
 
         for (int i = 0; i < planes.length(); i++) {
             JSONObject plane = planes.getJSONObject(i);
-            String icao24 = getString(plane, "flight_icao", null);
+            String icao24 = getString(plane, "flight_icao", "reg_number");
             String label = getString(plane,"reg_number", null);
 
 

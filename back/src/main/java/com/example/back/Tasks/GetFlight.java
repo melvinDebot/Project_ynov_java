@@ -81,7 +81,7 @@ public class GetFlight {
             Flight flightObject = new Flight(hex, flightNumber, status, speed, dir, latitude, longitude, icao24);
 
             System.out.println(flightObject);
-            flightService.insertFlight(flightObject);
+            //flightService.insertFlight(flightObject);
 
         }
         return null;
