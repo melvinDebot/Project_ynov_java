@@ -12,8 +12,9 @@
       v-for="(coordinate,key) in positionPlane"
       :key="key"
       :coordinates="[coordinate.lng,coordinate.lat]" 
+      :style="`transform: rotate(${coordinate.direction}deg) !important`"
       >
-        <img :src="imgPlane" alt="" slot="marker" class="img-plane" :style="`transform: rotate(${coordinate.dir}deg)`"/>
+        <img :src="imgPlane" alt="" slot="marker" class="img-plane" />
         <MglPopup :coordinates="[coordinate.lng,coordinate.lat]" anchor="top">
           <div>flight number{{ coordinate.flight_number }}</div>
     </MglPopup>
