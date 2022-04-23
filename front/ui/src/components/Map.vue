@@ -13,7 +13,7 @@
       :key="key"
       :coordinates="[coordinate.lng,coordinate.lat]" 
       >
-        <img :src="imgPlane" alt="" slot="marker" class="img-plane"/>
+        <img :src="imgPlane" alt="" slot="marker" class="img-plane" :style="`transform: rotate(${coordinate.dir}deg)`"/>
         <MglPopup :coordinates="[coordinate.lng,coordinate.lat]" anchor="top">
           <div>flight number{{ coordinate.flight_number }}</div>
     </MglPopup>
@@ -26,6 +26,7 @@
 import { MglMap, MglMarker, MglPopup } from "vue-mapbox";
 import plane from "../assets/plane.svg";
 import axios from "axios"
+import fakeData from "../components/data.json"
 
 export default {
   name: "MapExample",
@@ -50,9 +51,11 @@ export default {
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
-    axios.get("https://airlabs.co/api/v9/flights?api_key=537a34ad-98f0-4616-adae-ec9a3f8e1da1").then((response)=> {
-      this.positionPlane = response.data.response
+    axios.get("localhost:8000/flights").then(()=> {
+      // this.positionPlane = response.data.response
     })
+  // MISE EN PLACE DE FAUSSE VALEUR A MODIFIER AVEC L'API
+  this.positionPlane = fakeData
   }
 };
 </script>
