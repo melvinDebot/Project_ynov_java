@@ -12,10 +12,11 @@
       v-for="(coordinate,key) in positionPlane"
       :key="key"
       :coordinates="[coordinate.lng,coordinate.lat]" 
+      :style="`transform: rotate(${coordinate.direction}deg) !important`"
       >
-        <img :src="imgPlane" alt="" slot="marker" class="img-plane"/>
+        <img :src="imgPlane" alt="" slot="marker" class="img-plane" />
         <MglPopup :coordinates="[coordinate.lng,coordinate.lat]" anchor="top">
-          <div>flight number{{ coordinate.flight_number }}</div>
+          <div><strong>flight number </strong>{{ coordinate.flightNumber }}</div>
     </MglPopup>
       </MglMarker>
     </MglMap>
@@ -50,9 +51,19 @@ export default {
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
-    axios.get("https://airlabs.co/api/v9/flights?api_key=537a34ad-98f0-4616-adae-ec9a3f8e1da1").then((response)=> {
-      this.positionPlane = response.data.response
-    })
+    axios.get("http://localhost:8000/flights").then((response)=> {
+      //this.positionPlane = response.data
+      let i = 0;
+      response.data.forEach(element => {
+        //Implementation of a limit to avoid bugs in the api
+        if(i < 1000){
+          this.positionPlane.push({ lat: element.latitude, lng: element.longitude, flightNumber: element.flightNumber, direction: element.dir})
+          i += 1
+        }
+      })
+    }).catch((error) => {
+        console.log(error)
+      })
   }
 };
 </script>
