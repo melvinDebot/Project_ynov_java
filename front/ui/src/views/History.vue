@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <input type="text" placeholder="Filter by countries" v-model="filter">
+    <input type="text" placeholder="Filter by hex" v-model="filter">
   <table>
     <thead>
       <tr>
         <th @click="sort('hex')">HEX</th>
-        <th @click="sort('flag')">COUNTRIES</th>
+        <th @click="sort('flag')">COUNTRIES ZONE</th>
         <th>STATUE</th>
         <th>LONGITUDE</th>
         <th>ALTITUDE</th>
@@ -15,7 +15,7 @@
     <tbody>
       <tr v-for="(row, index) in sortedRow" :key="index">
         <td>{{row.hex}}</td>
-        <td>{{convertIsoToCountries(row.flag)}}</td>
+        <td>{{convertIsoToCountries(row.latitude, row.longitude)}}</td>
         <td>{{row.status}}</td>
         <td>
           {{ row.longitude }}
@@ -42,6 +42,9 @@ import axios from "axios"
 const countries = require('i18n-iso-countries')
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'))
 
+const { lookUp } = require("geojson-places");
+const list = countries.getNames('en', { select: 'official' })
+
 export default {
   name : 'History',
   data(){
@@ -51,7 +54,8 @@ export default {
       pageSize:15,
       currentPage:1,
       filter:'',
-      rows : []
+      rows : [],
+      listIso : []
     }
   },
   methods : {
@@ -67,10 +71,10 @@ export default {
     prevPage(){
       if(this.currentPage > 1) this.currentPage--;
     },
-    convertIsoToCountries(iso){
-      const list = countries.getNames('en', { select: 'official' })
-      let foundCountryCode = iso;
-      let countryName = list[foundCountryCode] || iso
+    convertIsoToCountries(altitude, longitude){
+      // sorting of the planes on which country it flies over
+      const result = lookUp(altitude, longitude);
+      let countryName = list[result?.continent_code] || 'not found country'
       return countryName
     },
     convertTimeStamp(timestamp){
@@ -88,7 +92,7 @@ export default {
     filteredRow() {
       return this.rows.filter(c => {
         if(this.filter == '') return true;
-        return c.flag.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+        return c.hex.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
       })
     },
     sortedRow(){
@@ -106,9 +110,9 @@ export default {
     }
   },
   mounted(){
+    console.log('list', list)
     axios.get("http://localhost:8000/flights").then((response) => {
       this.rows = response.data
-      console.log("🚀 ~ file: History.vue ~ line 118 ~ axios.get ~ this.rows", this.rows)
     })
   }
 }

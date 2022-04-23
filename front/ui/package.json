@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.6.5",
+    "geojson-places": "^1.0.3",
     "i18n-iso-countries": "^7.4.0",
     "mapbox-gl": "^0.53.1",
     "register-service-worker": "^1.7.1",
