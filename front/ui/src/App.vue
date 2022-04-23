@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">MVS AIRLINE</router-link> 
-      <router-link to="/about">Historiques</router-link>
+      <router-link to="/">MAPS AIRLINE</router-link> 
+      <router-link to="/history">Historiques</router-link>
     </div>
     <router-view/>
   </div>
