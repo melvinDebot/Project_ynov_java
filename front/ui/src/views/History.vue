@@ -4,12 +4,12 @@
   <table>
     <thead>
       <tr>
-        <th @click="sort('hex')">HEX</th>
-        <th @click="sort('flag')">COUNTRIES ZONE</th>
+        <th @click="sort('hex')">HEX ↕️</th>
+        <th>COUNTRIES ZONE</th>
         <th>STATUE</th>
         <th>LONGITUDE</th>
         <th>ALTITUDE</th>
-        <th>UPDATED</th>
+        <!-- <th>UPDATED</th> -->
       </tr>
     </thead>
     <tbody>
@@ -23,9 +23,9 @@
         <td>
           {{ row.latitude }}
         </td>
-        <td>
+        <!-- <td>
           {{ convertTimeStamp(row.updated) }}
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>
