@@ -3,6 +3,11 @@
 
 # Project Ynov App Flight
 
+## Authors
+
+- [Melvin DEBOT](https://github.com/melvinDebot)
+- [Vincent MEECHAI](https://github.com/PokSoul)
+
 
 ## Run Frontend
 
