@@ -14,7 +14,7 @@
 ```bash
   cd front/ui
   npm i 
-  npm run dev 
+  npm run serve 
 ```
 🎉let's go
 ```http
