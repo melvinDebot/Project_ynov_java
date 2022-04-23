@@ -16,7 +16,7 @@
       >
         <img :src="imgPlane" alt="" slot="marker" class="img-plane" />
         <MglPopup :coordinates="[coordinate.lng,coordinate.lat]" anchor="top">
-          <div>flight number{{ coordinate.flight_number }}</div>
+          <div><strong>flight number </strong>{{ coordinate.flightNumber }}</div>
     </MglPopup>
       </MglMarker>
     </MglMap>
@@ -27,7 +27,6 @@
 import { MglMap, MglMarker, MglPopup } from "vue-mapbox";
 import plane from "../assets/plane.svg";
 import axios from "axios"
-import fakeData from "../components/data.json"
 
 export default {
   name: "MapExample",
@@ -52,11 +51,19 @@ export default {
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
-    axios.get("localhost:8000/flights").then(()=> {
-      // this.positionPlane = response.data.response
-    })
-  // MISE EN PLACE DE FAUSSE VALEUR A MODIFIER AVEC L'API
-  this.positionPlane = fakeData
+    axios.get("http://localhost:8000/flights").then((response)=> {
+      //this.positionPlane = response.data
+      let i = 0;
+      response.data.forEach(element => {
+        //Implementation of a limit to avoid bugs in the api
+        if(i < 1000){
+          this.positionPlane.push({ lat: element.latitude, lng: element.longitude, flightNumber: element.flightNumber, direction: element.dir})
+          i += 1
+        }
+      })
+    }).catch((error) => {
+        console.log(error)
+      })
   }
 };
 </script>
