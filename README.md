@@ -1,14 +1,10 @@
 
+
+
 # Project Ynov App Flight
 
-## Part : Lunch server
 
-```bash
-  cd back  
-```
-
-
-## Part : Frontend
+## Run Frontend
 
 ```bash
   cd front/ui
@@ -19,6 +15,61 @@
 ```http
   http://localhost:8080
 ```
+
+## API Flight
+#### Get all flights
+
+```http
+  GET /flights
+```
+
+#### Get id
+
+```http
+  GET /flights/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+## API PLANES
+#### Get all planes
+
+```http
+  GET /airplanes
+```
+
+#### Get id
+
+```http
+  GET /airplanes/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+
+
+
+## demo app
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Tech Stack
+
+**Client:** VUE JS
+
+**Map:** VUE MAPBOX
+
+**Server:** JAVA
+
+**Api:** JAVA
+
+
+
 
 
 
