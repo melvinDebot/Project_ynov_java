@@ -14,7 +14,7 @@ public class AirplaneService {
         this.airplaneRepository = airplaneRepository;
     }
 
-    public void insertAirPlane(Airplane airplane) {
-        airplaneRepository.save(airplane);
+    public void insertAllAirplane(Iterable<Airplane> airplanes){
+        airplaneRepository.saveAll(airplanes);
     }
 }

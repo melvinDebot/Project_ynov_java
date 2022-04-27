@@ -12,21 +12,13 @@ public class Flight {
     @Column(name = "flight_number")
     private String flightNumber;
     private String status;
-    private int speed;
-    private int dir;
-    private Float latitude;
-    private Float longitude;
     @Column(name = "id_plane")
     private String icao24;
 
-    public Flight(String hex, String flightNumber, String status, int speed, int dir, Float latitude, Float longitude, String icao24) {
+    public Flight(String hex, String flightNumber, String status, String icao24) {
         this.hex = hex;
         this.flightNumber = flightNumber;
         this.status = status;
-        this.speed = speed;
-        this.dir = dir;
-        this.latitude = latitude;
-        this.longitude = longitude;
         this.icao24 = icao24;
     }
 
@@ -56,38 +48,6 @@ public class Flight {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getDir() {
-        return dir;
-    }
-
-    public void setDir(int dir) {
-        this.dir = dir;
-    }
-
-    public Float getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Float latitude) {
-        this.latitude = latitude;
-    }
-
-    public Float getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Float longitude) {
-        this.longitude = longitude;
     }
 
     public String getIcao24() {
