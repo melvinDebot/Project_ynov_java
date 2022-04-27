@@ -13,10 +13,13 @@ public class Airplane {
     @Column(name = "id_plane")
     private String icao24;
     private String label;
+    @Column(name = "id_flight")
+    private String hex;
 
-    public Airplane(String icao24, String label) {
+    public Airplane(String icao24, String label, String hex) {
         this.icao24 = icao24;
         this.label = label;
+        this.hex = hex;
     }
 
     public Airplane() {
@@ -37,5 +40,13 @@ public class Airplane {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getHex() {
+        return hex;
+    }
+
+    public void setHex(String hex) {
+        this.hex = hex;
     }
 }

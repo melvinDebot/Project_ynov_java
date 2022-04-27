@@ -5,17 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26909cdb-2c20-49d6-87d3-c1206d551bbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/controllers/AirplaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/controllers/FlightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiflight/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Services/AirplaneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Services/AirplaneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Services/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Services/FlightService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Repository/FlightHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/Services/FlightHistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/controllers/FlightHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Repository/FlightHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Services/FlightHistoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiflight/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiflight/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/logs/app.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/Airplane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apiflight/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/Tasks/GetFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Tasks/GetFlight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/FlightHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apiflight/src/main/java/com/example/apiflight/models/FlightHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/Services/AirplaneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Services/AirplaneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/Services/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Services/FlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/Tasks/GetAirplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/Tasks/FlightTasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/Tasks/GetFlight.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/models/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/models/Airplane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/models/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/models/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/back/models/FlightHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/back/models/FlightHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +83,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../apiflight" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.back.Tasks" />
       <recent name="com.example.back.Services" />
+      <recent name="com.example.back.Repository" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,12 +121,22 @@
       <workItem from="1650541394418" duration="2091000" />
       <workItem from="1650543531205" duration="4453000" />
       <workItem from="1650548444880" duration="11000" />
-      <workItem from="1650612088309" duration="443000" />
+      <workItem from="1650612088309" duration="1270000" />
+      <workItem from="1650613804305" duration="856000" />
+      <workItem from="1650628660469" duration="174000" />
+      <workItem from="1650708253820" duration="40000" />
+      <workItem from="1650730462675" duration="7490000" />
+      <workItem from="1650916740556" duration="221000" />
+      <workItem from="1651078932084" duration="2466000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
