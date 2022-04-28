@@ -39,21 +39,11 @@
 | `id`      | `string` | **Required**. Id of item to fetch |
 
 ## API PLANES
-#### Get all planes
+#### Get all history 
 
 ```http
-  GET /airplanes
+  GET /history 
 ```
-
-#### Get id
-
-```http
-  GET /airplanes/{id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
 
 
 
