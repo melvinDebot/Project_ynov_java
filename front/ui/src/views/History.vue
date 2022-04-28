@@ -1,31 +1,30 @@
 <template>
   <div class="container">
-    <input type="text" placeholder="Filter by hex" v-model="filter">
+    <h3>Search for the aircraft's overflight area </h3>
+    <input type="text" placeholder="Filter by flag" v-model="filter">
   <table>
     <thead>
       <tr>
-        <th @click="sort('hex')">HEX ↕️</th>
+        <th @click="sort('flag')">FLAG ↕️</th>
         <th>COUNTRIES ZONE</th>
-        <th>STATUE</th>
         <th>LONGITUDE</th>
         <th>ALTITUDE</th>
-        <!-- <th>UPDATED</th> -->
+        <th>DATA</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(row, index) in sortedRow" :key="index">
-        <td>{{row.hex}}</td>
+        <td>{{row.flag}}</td>
         <td>{{convertIsoToCountries(row.latitude, row.longitude)}}</td>
-        <td>{{row.status}}</td>
         <td>
           {{ row.longitude }}
         </td>
         <td>
           {{ row.latitude }}
         </td>
-        <!-- <td>
-          {{ convertTimeStamp(row.updated) }}
-        </td> -->
+        <td>
+          {{ row.date }}
+        </td>
       </tr>
     </tbody>
   </table>
@@ -92,7 +91,7 @@ export default {
     filteredRow() {
       return this.rows.filter(c => {
         if(this.filter == '') return true;
-        return c.hex.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+        return c.flag?.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
       })
     },
     sortedRow(){
@@ -111,7 +110,7 @@ export default {
   },
   mounted(){
     console.log('list', list)
-    axios.get("http://localhost:8000/flights").then((response) => {
+    axios.get("http://localhost:8000/history").then((response) => {
       this.rows = response.data
     })
   }
