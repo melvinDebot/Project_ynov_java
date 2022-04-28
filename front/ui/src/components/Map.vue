@@ -51,20 +51,29 @@ export default {
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
-    axios.get("http://localhost:8000/history").then((response)=> {
-      //this.positionPlane = response.data
-      let i = 0;
-      response.data.forEach(element => {
-        //Implementation of a limit to avoid bugs in the api
-        if(i < 1000){
-          this.positionPlane.push({ lat: element.latitude, lng: element.longitude, flightNumber: element.flag, direction: element.dir})
-          i += 1
-        }
-      })
-    }).catch((error) => {
-        console.log(error)
-      })
+    this.getDataApi()
+  },
+  methods : {
+    getDataApi() {
+      // Aircraft movement in real time
+      this.intervalData = setInterval(function(){
+        this.positionPlane = []
+        axios.get("http://localhost:8000/history").then((response) => {
+          let i = 0;
+          response.data.forEach(element => {
+            if (i < 1000) {
+              this.positionPlane.push({ lat: element.latitude, lng: element.longitude, direction: element.dir, flightNumber : element.flag })
+              i += 1
+            }
+          });
+          console.log('the positions of the planes have been modified')
+        }).catch((error) => {
+          console.log(error)
+        })}
+      .bind(this), 5000);
+    }
   }
+  
 };
 </script>
 
