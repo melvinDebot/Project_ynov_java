@@ -51,13 +51,13 @@ export default {
   }, 
   mounted() {
     this.containerElement = document.getElementById('mycontainer')
-    axios.get("http://localhost:8000/flights").then((response)=> {
+    axios.get("http://localhost:8000/history").then((response)=> {
       //this.positionPlane = response.data
       let i = 0;
       response.data.forEach(element => {
         //Implementation of a limit to avoid bugs in the api
         if(i < 1000){
-          this.positionPlane.push({ lat: element.latitude, lng: element.longitude, flightNumber: element.flightNumber, direction: element.dir})
+          this.positionPlane.push({ lat: element.latitude, lng: element.longitude, flightNumber: element.flag, direction: element.dir})
           i += 1
         }
       })
